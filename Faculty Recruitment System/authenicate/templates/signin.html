@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Login Page</title>
+    <link rel="stylesheet" type="text/css" href="{% static "css/signin.css"%}">
+  </head>
+  <body>
+      <div class="overlay">
+        <div id="container">
+      <div id="form_box">
+        <form action="/accounts/validate/" method="post">{% csrf_token %}
+          <p id="form_heading">Login Form</p>
+          <input type="text" placeholder="username" name="username"><br />
+          <input type="password" placeholder="password" name="password"><br />
+		  <a href="/accounts/signup">Not registered?</a><br /><br />
+		  <a href="/home/index">Return to Home Page</a><br />
+          <input type="checkbox" id="checkbox"><label for="checkbox" style="color:white; font-size:15px;">Remember Me</label><br />
+          <input type="submit" value="login"><br />
+        </form>
+      </div>
+    </div>
+    <div class="btn-wrap">
+  </div>
+  </div>
+    
+  </body>
+
+  </html>
+    
+    

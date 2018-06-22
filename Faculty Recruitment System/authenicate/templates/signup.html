@@ -1,0 +1,33 @@
+<!doctype html>
+{% load static %}
+<html>
+   <head>
+      <title>Sign up Page</title>
+      <link rel="stylesheet" type="text/css" href="{% static "css/signup.css"%}">
+   </head>
+   <body>
+      <div class="overlay">
+         <div id="container">
+            <div class ="scroll">
+               <div id="form_box">
+                  <form action="/accounts/create/" method="post">{% csrf_token %}
+                     <p id="form_heading">Sign up Form</p>
+                     <!--<input type="text" placeholder="firstname" name="firstname">
+                     <input type="text" placeholder="lastname" name="lastname"><br />/-->
+					 <input type="text" placeholder="username" name="username"/><br />
+                     <!--<input type="email" placeholder="email" name="email"><br />/-->
+                     <input type="password" placeholder="password" name="password1"><br />
+                     <input type="password" placeholder="confirm password" name="password2"><br />
+					 <a href="/accounts/signin">Aready registered?</a><br /><br />
+					 <a href="/home/index">Return to Home Page</a><br />
+                     <input type="submit" value="Sign Up"><br />
+                  </form>
+               </div>
+            </div>
+            <div class="btn-wrap">
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
+

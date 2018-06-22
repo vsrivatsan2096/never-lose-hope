@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+{% load static %}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+      <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+	<!-- BOOTSTRAP STYLES-->
+    <link href="{% static "css/bootstrap.css"%}" rel="stylesheet" />
+     <!-- FONTAWESOME STYLES-->
+    <link href="{% static "css/font-awesome.css"%}" rel="stylesheet" />
+        <!-- CUSTOM STYLES-->
+    <link href="{% static "css/custom.css"%}" rel="stylesheet" />
+     <!-- GOOGLE FONTS-->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+
+<style>
+.button5 {background-color: #555555;}
+</style>
+
+	
+
+</head>
+<body>
+     
+           
+          
+    <div id="wrapper">
+         <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="adjust-nav">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">
+ <img src="{% static "images/logo.png"%}" />
+                       
+
+                    </a>
+                    
+                </div>
+              
+                <span class="logout-spn" >
+                  <a href="/accounts/logout" style="color:#fff;">Log Out</a>
+
+                </span>
+            </div>
+        </div>
+        <!-- /. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+                 
+
+
+                    <li class="active-link">
+                        <a href="/welcome/dashboard" ><i class="fa fa-desktop "></i>Dashboard</a>
+                    </li>
+                   
+
+                    <li>
+                        <a href="/profile/display"><i class="fa fa-table "></i>Profile </a>
+                    </li>
+
+
+
+                    <li>
+                        <a href="/welcome/status"><i class="fa fa-qrcode "></i> Status</a>
+                    </li>
+                    
+                    
+                </ul>
+                            </div>
+
+        </nav>
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper" >
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-lg-12">
+                     <h2>Computer science & Engineering</h2>   
+                    </div>
+                </div>  
+<br>
+
+
+		<h4>About the Department:</h4>
+
+The Department of computer science and engineering focuses on building a string foundation in the basics concepts like logical thinking<br> and programming skills in the minds of the students, and exposing recent developments in computer science and engineering<br> like SMAC technology (Social network analysis, Mobile computing, Analytics and Cloud computing) and Quantum computing. <br>Also, through the students' association, workshop and conference, the students are motivated to develop organizational <br> and leadership skills apart from mastering technical skills. Our experienced and dedicated faculty encourage the learning habits of the students<br> inside an outside the class room as well as towards self learning. Our aim is to provide technical and soft skills to our students in getting placements in reputed national and international organization; and also, we have entrepreneurial skills and make them future business magnets of our country in their chosen field.             
+                 <!-- /. ROW  -->
+                  <hr />
+                {% for each_job in jobs %}
+                <div class="row">
+                    <div class="col-lg-12 ">
+                        <div id="{{ each_job.id }}" class="alert alert-info">
+                             <strong> {{ each_job.title }} <br>Qualification </strong>: {{ each_job.req_deg }}<br />
+                             <strong>Description: </strong>{{ each_job.description }}
+                             <form action="/welcome/apply/" method="GET">
+                                 <input type="hidden" value="{{ each_job.id }}" name="job_id">
+				                 <input type="submit" value="Apply"  style="float: right;margin-top: -30px;">
+                             </form>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+		<!--<div class="row">
+                    <div class="col-lg-12 ">
+                        <div class="alert alert-info">
+                             <strong> Assistent Professor </strong><br>
+				
+Qualification
+: M.Tech
+
+				<input type="button" value="Apply" style="float: right;">
+                        </div>
+                       
+                    </div>
+                    </div>
+
+		<div class="row">
+                    <div class="col-lg-12 ">
+                        <div class="alert alert-info">
+                             <strong> Lab Assistent  </strong><br>
+
+Qualification
+: B.E
+				<input type="button" value="Apply" style="float: right;">
+                        </div>
+                       
+                    </div>
+                    </div>-->
+
+		
+			
+
+                  
+               
+                  <!-- /. ROW  --> 
+    </div>
+             <!-- /. PAGE INNER  -->
+            </div>
+         <!-- /. PAGE WRAPPER  -->
+        </div>
+    <div class="footer">
+      
+    
+            <div class="row">
+                <div class="col-lg-12" >
+                    &copy;    | Design by: <a href="http://www.psgitech.ac.in" style="color:#fff;" target="_blank">Psg Institutions</a>
+                </div>
+            </div>
+        </div>
+          <!-- /. WRAPPER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="{% static "javascript/jquery-1.10.2.js" %}"></script>
+      <!-- BOOTSTRAP SCRIPTS -->
+    <script src="{% static "javascript/bootstrap.min.js" %}"></script>
+      <!-- CUSTOM SCRIPTS -->
+    <script src="{% static "javascript/custom.js" %}"></script>
+    
+
+     
+   
+</body>
+</html>
